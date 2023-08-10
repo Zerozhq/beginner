@@ -1,0 +1,30 @@
+const today = new Date()
+const test = today.getFullYear()
+
+class Carro {
+  constructor(body, price){
+    this.body = body
+    this.price = price
+  }
+
+  getValue(price, year){
+    return price +( price *(0.05 *(year - test))) 
+  }
+}
+
+class Crossfoxx extends Carro{
+  constructor(garantee, body, price){
+    super(body, price)
+    this.garantee = garantee
+  }
+
+  aciddent(){
+    this.garantee = false
+    return this
+  }
+}
+
+const car = new Crossfoxx(true, "Cross", 30000)
+
+console.log(car)
+console.log(car.aciddent())
